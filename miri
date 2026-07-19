@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>🌸 For Miri 🌸</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fce4ec, #f8e8e8, #fff0f5);
+            min-height: 100vh;
+            padding: 12px;
+            overflow-x: hidden;
+        }
+
+        /* ---------- SCROLLBAR (optional, mobile ignores) ---------- */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #fce4ec; }
+        ::-webkit-scrollbar-thumb { background: #f48fb1; border-radius: 10px; }
+
+        /* ---------- CONTAINER ---------- */
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 28px;
+            padding: 20px 16px;
+            box-shadow: 0 8px 40px rgba(233, 30, 99, 0.12);
+            border: 1.5px solid rgba(255, 182, 193, 0.25);
+        }
+
+        /* ---------- HEADER ---------- */
+        .header {
+            text-align: center;
+            padding: 10px 0 6px;
+        }
+        .header h1 {
+            font-size: 2.4rem;
+            background: linear-gradient(45deg, #e91e63, #f06292, #ec407a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.5px;
+        }
+        .header .subtitle {
+            color: #ad1457;
+            font-size: 0.95rem;
+            margin-top: 4px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.7);
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 30px;
+        }
+        .header .cute-emoji {
+            font-size: 1.8rem;
+            animation: float 3s ease-in-out infinite;
+            display: block;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ---------- CAT SECTION ---------- */
+        .cat-section {
+            text-align: center;
+            margin: 16px 0 20px;
+            padding: 16px 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            border: 2px dashed #f48fb1;
+        }
+        .cat-section h2 {
+            color: #880e4f;
+            font-size: 1.4rem;
+        }
+        .cat-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .cat-grid img {
+            width: 72px;
+            height: 72px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #f8bbd0;
+            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.1);
+            transition: transform 0.2s;
+        }
+        .cat-grid img:active {
+            transform: scale(0.95);
+        }
+        .cat-stickers {
+            font-size: 2.4rem;
+            letter-spacing: 6px;
+            margin-top: 6px;
+        }
+
+        /* ---------- SPOTIFY PLAYLIST ---------- */
+        .playlist-section {
+            margin: 20px 0;
+            padding: 16px 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            border: 2px solid #f8bbd0;
+        }
+        .playlist-section h2 {
+            color: #880e4f;
+            text-align: center;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .playlist-section h2 i {
+            margin-right: 8px;
+            color: #1DB954;
+        }
+        .spotify-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 16px;
+            padding: 8px 4px;
+        }
+        .spotify-container iframe {
+            width: 100%;
+            height: 380px;
+            border-radius: 14px;
+            border: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+        .favorite-badge {
+            display: inline-block;
+            background: #e91e63;
+            color: white;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-top: 10px;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 10px rgba(233, 30, 99, 0.2);
+        }
+        .favorite-badge i {
+            margin-right: 4px;
+        }
+        .playlist-note {
+            color: #880e4f;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            opacity: 0.8;
+            text-align: center;
+        }
+
+        /* ---------- QUOTES & HUGOT ---------- */
+        .quotes-section, .hugot-section {
+            margin: 18px 0;
+            padding: 16px 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            border: 2px solid #f8bbd0;
+        }
+        .quotes-section h2, .hugot-section h2 {
+            color: #880e4f;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+        .quote-box, .hugot-box {
+            background: white;
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin: 10px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border-left: 5px solid #f06292;
+            font-style: italic;
+            color: #4a148c;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            word-wrap: break-word;
+        }
+        .quote-box:active, .hugot-box:active {
+            background: #fce4ec;
+            transform: scale(0.99);
+        }
+        .quote-box .author, .hugot-box .author {
+            display: block;
+            margin-top: 6px;
+            font-style: normal;
+            font-weight: 600;
+            color: #ad1457;
+            font-size: 0.8rem;
+        }
+
+        /* ---------- LETTER / MESSAGE ---------- */
+        .letter-section {
+            margin: 20px 0 16px;
+            padding: 20px 16px;
+            background: linear-gradient(145deg, #fff0f5, #fce4ec);
+            border-radius: 28px;
+            border: 2px solid #f48fb1;
+            box-shadow: inset 0 0 20px rgba(233, 30, 99, 0.02);
+        }
+        .letter-section h2 {
+            color: #880e4f;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+        .letter-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #4a148c;
+            white-space: pre-wrap;
+            font-family: 'Georgia', serif;
+            background: rgba(255,255,255,0.4);
+            padding: 16px 18px;
+            border-radius: 20px;
+            margin-top: 10px;
+            border: 1px solid rgba(244, 143, 177, 0.15);
+        }
+        .letter-content .signature {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #c2185b;
+            text-align: right;
+            margin-top: 14px;
+        }
+
+        /* ---------- COLLEGE GOOD LUCK ---------- */
+        .college-section {
+            text-align: center;
+            padding: 16px 12px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            margin: 16px 0;
+            border: 2px solid #f8bbd0;
+        }
+        .college-section h2 {
+            color: #880e4f;
+            font-size: 1.4rem;
+        }
+        .college-section .big-emoji {
+            font-size: 2.8rem;
+            display: block;
+            margin: 6px 0;
+        }
+        .college-section p {
+            font-size: 1rem;
+            color: #4a148c;
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            text-align: center;
+            color: #ad1457;
+            padding: 16px 0 4px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+
+        /* ---------- RESPONSIVE TWEAKS ---------- */
+        @media (max-width: 400px) {
+            body { padding: 8px; }
+            .container { padding: 14px 12px; border-radius: 22px; }
+            .header h1 { font-size: 2rem; }
+            .cat-grid img { width: 60px; height: 60px; }
+            .spotify-container iframe { height: 300px; }
+            .letter-content { font-size: 0.9rem; padding: 12px 14px; }
+            .quote-box, .hugot-box { font-size: 0.88rem; padding: 12px 14px; }
+        }
+
+        @media (min-width: 600px) {
+            .container { max-width: 600px; padding: 30px 25px; }
+            .cat-grid img { width: 100px; height: 100px; }
+            .spotify-container iframe { height: 420px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+        <span class="cute-emoji">🌸✨🌷</span>
+        <h1>For Miri</h1>
+        <div class="subtitle">💖 you deserve all the sweetness in the world 💖</div>
+    </div>
+
+    <!-- ===== CAT SECTION ===== -->
+    <div class="cat-section">
+        <h2>🐱 pusa-pusa muna 🐱</h2>
+        <div class="cat-grid">
+            <img src="https://media.tenor.com/8jI9B6M4fRwAAAAC/cat-cute.gif" alt="cute cat 1" loading="lazy" />
+            <img src="https://media.tenor.com/1Qy8gPx8LKUAAAAM/cat-cute.gif" alt="cute cat 2" loading="lazy" />
+            <img src="https://media.tenor.com/Hn7_gx4Bxi8AAAAM/cat-cute.gif" alt="cute cat 3" loading="lazy" />
+            <img src="https://media.tenor.com/QFAfFfA5W3kIAAAAM/cat-cute.gif" alt="cute cat 4" loading="lazy" />
+        </div>
+        <div class="cat-stickers">
+            🐾😺🐈🐈‍⬛🐱😻
+        </div>
+    </div>
+
+    <!-- ===== SPOTIFY PLAYLIST ===== -->
+    <div class="playlist-section">
+        <h2><i class="fab fa-spotify"></i> Cup of Joe · Silakbo</h2>
+        <div class="spotify-container">
+            <iframe 
+                src="https://open.spotify.com/embed/album/2WOyuTsNHF90SryrS3kmIN" 
+                allowtransparency="true" 
+                allow="encrypted-media">
+            </iframe>
+            <div class="favorite-badge">
+                <i class="fas fa-star"></i> Favorite: BUBOG
+            </div>
+            <p class="playlist-note">🎧 tap to play, Miri!</p>
+        </div>
+    </div>
+
+    <!-- ===== MOTIVATIONAL QUOTES ===== -->
+    <div class="quotes-section">
+        <h2>☀️ Read this when you need a boost ☀️</h2>
+        <div class="quote-box">
+            "You are stronger than you think. Every storm you've faced, you've survived."
+            <span class="author">— for Miri</span>
+        </div>
+        <div class="quote-box">
+            "The sun will rise again, and so will you. Laban lang, Miri."
+            <span class="author">— Gab</span>
+        </div>
+        <div class="quote-box">
+            "Your potential is endless. Keep going, you're doing amazing."
+            <span class="author">— always believe in you</span>
+        </div>
+        <div class="quote-box">
+            "It's okay to not be okay. Rest, breathe, and know that you are loved."
+            <span class="author">— you're never alone</span>
+        </div>
+    </div>
+
+    <!-- ===== HUGOT LINES ===== -->
+    <div class="hugot-section">
+        <h2>💔 hugot lines only for you 💔</h2>
+
+        <div class="hugot-box">"Mahal kita, pero mas mahal ko ang peace of mind ko — kaya mag-eehersisyo na lang ako." <span class="author">#hugot</span></div>
+        <div class="hugot-box">"Ang true love, parang WiFi — pag malayo, nawawala. Pero pag malapit, ang bilis kumonek." <span class="author">#char</span></div>
+        <div class="hugot-box">"Sana ako na lang ang iniisip mo, hindi ang homework mo." <span class="author">— Gab</span></div>
+        <div class="hugot-box">"Pwede bang ikaw na lang ang sagot sa lahat ng tanong ko?" <span class="author">#examplified</span></div>
+        <div class="hugot-box">"Ang tanging gustong i-achieve ng puso ko ay ikaw." <span class="author">#goals</span></div>
+        <div class="hugot-box">"Kung ang cellphone may charger, ang puso ko may Miri charger." <span class="author">#fullbatt</span></div>
+        <div class="hugot-box">"Sabi nila, 'wag mong hanapin ang pag-ibig. Pero ikaw, hinahanap-hanap ko." <span class="author">#sorryna</span></div>
+        <div class="hugot-box">"Parang kape ka — matapang, mainit, at nakakagising ng damdamin." <span class="author">#cupofjoe</span></div>
+        <div class="hugot-box">"Kung ang buhay ay isang movie, sana ikaw ang leading lady ko." <span class="author">#romcom</span></div>
+        <div class="hugot-box">"Ang dami kong gustong sabihin, pero 'Miri' lang ang nasasabi ko." <span class="author">#speechless</span></div>
+        <div class="hugot-box">"Hugot? Hindi, ‘yan ang totoo. Mahal kita." <span class="author">— Gab</span></div>
+        <div class="hugot-box">"Kung may infinity sa math, sa puso ko, ikaw ang infinity ko." <span class="author">#mathnerd</span></div>
+        <div class="hugot-box">"Minsan, ang pinakamagandang sagot ay ang 'Miri'." <span class="author">#tama</span></div>
+        <div class="hugot-box">"Gusto kitang i-date, pero mas gusto kong i-date mo ang sarili mo — kasi deserve mo." <span class="author">#selflove</span></div>
+        <div class="hugot-box">"Ang puso ko, parang playlist — puro Cup of Joe, puro ikaw." <span class="author">#onrepeat</span></div>
+        <div class="hugot-box">"Sana all may Miri." <span class="author">#sanaall</span></div>
+        <div class="hugot-box">"You're the Bubog to my Cup of Joe — you complete the song." <span class="author">#favorite</span></div>
+    </div>
+
+    <!-- ===== COLLEGE GOOD LUCK ===== -->
+    <div class="college-section">
+        <h2>🎓 college na, pero kaya mo 'yan!</h2>
+        <span class="big-emoji">📚✨💪</span>
+        <p>
+            Miri, you're about to start a new chapter.<br />
+            It's okay to be nervous, but always remember —<br />
+            <strong>you are capable, brilliant, and not alone.</strong>
+        </p>
+        <p style="font-size:0.9rem; color:#880e4f; margin-top:8px;">
+            Gab will always be here to cheer you on. 🥹
+        </p>
+    </div>
+
+    <!-- ===== LETTER / MESSAGE ===== -->
+    <div class="letter-section">
+        <h2>💌 a little note for you 💌</h2>
+        <div class="letter-content">
+            Hey Miri,
+
+            I know you're about to start college, and I'm so proud of you.
+            You're one of the smartest, bravest, and most independent women I know.
+            But even the strongest need a hand sometimes.
+
+            So please remember: it's okay to ask for help.
+            It's okay to feel tired, to cry, to rest.
+            You don't have to carry everything alone.
+
+            I promise, Gab will always be here for you —
+            just like how you stayed with me at my lowest point.
+            You held me up when I couldn't stand.
+            Now let me do the same for you.
+
+            You are never too much.
+            You are never a burden.
+            You are exactly where you need to be.
+
+            Laban lang, Miri. And when you can't laban anymore,
+            I'll carry you. Always.
+
+            <div class="signature">— always, Gab 💖</div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer">
+        🌷 made with love, for Miri 🌷<br />
+        <span style="font-size:0.7rem;">cup of joe · cats · hugs · and forever</span>
+    </div>
+
+</div>
+
+</body>
+</html>
